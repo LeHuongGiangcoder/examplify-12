@@ -56,7 +56,7 @@ export const ExamCategoryCard = ({ category }: ExamCategoryCardProps) => {
 
       {/* Hover Content - Exam List */}
       <div className={cn(
-        "absolute inset-0 p-6 transition-all duration-500",
+        "absolute inset-0 p-6 transition-all duration-500 overflow-hidden",
         isHovered ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4 pointer-events-none"
       )}>
         <div className="flex items-center gap-3 mb-4">
@@ -64,7 +64,7 @@ export const ExamCategoryCard = ({ category }: ExamCategoryCardProps) => {
           <h3 className="text-xl font-semibold text-foreground">{category.name}</h3>
         </div>
         
-        <div className="space-y-2 max-h-[300px] overflow-y-auto pr-2 custom-scrollbar">
+        <div className="space-y-2 h-[calc(100%-80px)] overflow-y-auto pr-2 custom-scrollbar">
           {category.exams.map((exam) => (
             <Button
               key={exam.id}
