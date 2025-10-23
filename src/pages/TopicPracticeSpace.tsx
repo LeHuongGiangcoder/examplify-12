@@ -19,13 +19,10 @@ const mockQuestion = {
   ],
 };
 
-// Mock levels data (4 levels with progress)
-const mockLevels = [
-  { level: 1, progress: 75 },
-  { level: 2, progress: 50 },
-  { level: 3, progress: 30 },
-  { level: 4, progress: 10 },
-];
+// Mock progress data (user is in only one level at a time, progressing from 1 to 4)
+const totalLevels = 4;
+const currentLevel = 2; // Example: User is currently in level 2 (only this level is active)
+const progressInCurrentLevel = 50; // Example: 50% progress in the current level (levels 3-4 are not shown or active yet)
 
 export default function TopicPracticeSpace() {
   const { topicId } = useParams<{ topicId: string }>();
@@ -39,6 +36,7 @@ export default function TopicPracticeSpace() {
   const handleSubmit = () => {
     setIsSubmitted(true);
     // Mock feedback logic (e.g., check if selectedOption is correct)
+    // Upon completion, you could update currentLevel and reset progress if the level is finished
   };
 
   return (
@@ -55,18 +53,13 @@ export default function TopicPracticeSpace() {
           </div>
         </div>
 
-        {/* 4-Level Progress Bars */}
-        <div className="mb-6 space-y-4">
-          <h3 className="text-lg font-semibold">Progress by Level</h3>
-          <div className="grid grid-cols-4 gap-4">
-            {mockLevels.map((level) => (
-              <div key={level.level} className="space-y-2">
-                <span className="text-sm text-muted-foreground">Level {level.level}</span>
-                <Progress value={level.progress} className="h-2" />
-                <span className="text-xs text-center block">{level.progress}%</span>
-              </div>
-            ))}
+        {/* Single Progress Bar for Current Level Only */}
+        <div className="mb-6">
+          <div className="flex justify-between mb-2">
+            <span className="text-lg font-semibold">Level {currentLevel} / {totalLevels}</span>
+            <span className="text-sm text-muted-foreground">{progressInCurrentLevel}% Complete</span>
           </div>
+          <Progress value={progressInCurrentLevel} className="h-2" />
         </div>
 
         {/* Question Card */}
