@@ -11,9 +11,7 @@ interface TopicCardProps {
 
 export const TopicCard = ({ topic }: TopicCardProps) => {
   const navigate = useNavigate();
-  const avgCompletion = Math.round(
-    topic.levels.reduce((sum, level) => sum + (level.completionRate || 0), 0) / topic.levels.length
-  );
+  const completion = topic.completionRate || 0; // Use the single completionRate (assuming updated Topic type)
 
   return (
     <Card 
@@ -37,20 +35,18 @@ export const TopicCard = ({ topic }: TopicCardProps) => {
         <div className="space-y-2">
           <div className="flex justify-between text-sm">
             <span className="text-muted-foreground">Overall Progress</span>
-            <span className="font-medium text-primary">{avgCompletion}%</span>
+            <span className="font-medium text-primary">{completion}%</span>
           </div>
-          <Progress value={avgCompletion} variant="gradient" />
+          <Progress value={completion} variant="gradient" />
         </div>
+        {/* Removed multi-level badges; now showing only a single level badge */}
         <div className="flex gap-2 flex-wrap pt-2">
-          {topic.levels.map((level) => (
-            <Badge
-              key={level.id}
-              variant={(level.completionRate || 0) > 70 ? "success" : "secondary"}
-              className="text-xs"
-            >
-              Lv{level.level}: {level.completionRate || 0}%
-            </Badge>
-          ))}
+          <Badge
+            variant={completion > 70 ? "success" : "secondary"}
+            className="text-xs"
+          >
+            Level 1: {completion}%
+          </Badge>
         </div>
       </CardContent>
     </Card>
