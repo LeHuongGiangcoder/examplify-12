@@ -62,3 +62,21 @@ export interface ExamResult {
   weakTopics: string[];
   completedAt: Date;
 }
+
+export interface QuestionResult extends Question {
+  userAnswer: number;
+  isCorrect: boolean;
+  timeSpent: number; // in seconds
+}
+
+export interface DetailedExamResult extends ExamResult {
+  questions: QuestionResult[];
+  timeSpent: number; // in minutes
+  averageTimePerQuestion: number; // in seconds
+  topicPerformance: {
+    topicTag: string;
+    correctCount: number;
+    totalCount: number;
+    accuracyRate: number;
+  }[];
+}
