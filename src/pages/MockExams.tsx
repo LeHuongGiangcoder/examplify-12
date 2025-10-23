@@ -60,9 +60,6 @@ const MockExams = () => {
               <GraduationCap className="h-6 w-6 text-primary" />
             </div>
             <div className="flex-1">
-              <h3 className="text-lg font-semibold text-foreground mb-2">
-                Choose Your Exam Category
-              </h3>
               <p className="text-muted-foreground">
                 Hover over each category to see all available exam years. Each exam simulates real test conditions with 50 questions in 90 minutes.
               </p>
