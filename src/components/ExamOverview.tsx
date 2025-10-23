@@ -2,17 +2,25 @@ import { DetailedExamResult } from "@/types/exam";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { Clock, Target, Trophy, Brain } from "lucide-react";
+import { Button } from "@/components/ui/button"; // Assuming shadcn/ui Button is available
+import { useNavigate, useParams } from "react-router-dom";
 
 interface ExamOverviewProps {
   result: DetailedExamResult;
 }
 
 export const ExamOverview = ({ result }: ExamOverviewProps) => {
-  // Function to determine color based on accuracy rate
+  const navigate = useNavigate();
+  const { examId } = useParams<{ examId: string }>();
+
   const getMasteryColor = (accuracyRate: number) => {
     if (accuracyRate < 0.5) return "text-red-500"; // Low mastery
     if (accuracyRate < 0.8) return "text-yellow-500"; // Medium mastery
     return "text-green-500"; // High mastery
+  };
+
+  const handleViewDetails = () => {
+    navigate(`/exam/${examId}/performance`);
   };
 
   return (
@@ -78,8 +86,11 @@ export const ExamOverview = ({ result }: ExamOverviewProps) => {
 
       {/* Topic Performance */}
       <Card>
-        <CardHeader>
+        <CardHeader className="flex flex-row items-center justify-between">
           <CardTitle>Topic Performance</CardTitle>
+          <Button variant="outline" size="sm" onClick={handleViewDetails}>
+            View Detailed Performance
+          </Button>
         </CardHeader>
         <CardContent>
           <div className="space-y-4">
