@@ -8,6 +8,13 @@ interface ExamOverviewProps {
 }
 
 export const ExamOverview = ({ result }: ExamOverviewProps) => {
+  // Function to determine color based on accuracy rate
+  const getMasteryColor = (accuracyRate: number) => {
+    if (accuracyRate < 0.5) return "text-red-500"; // Low mastery
+    if (accuracyRate < 0.8) return "text-yellow-500"; // Medium mastery
+    return "text-green-500"; // High mastery
+  };
+
   return (
     <div className="space-y-6">
       {/* Score Overview */}
@@ -80,7 +87,7 @@ export const ExamOverview = ({ result }: ExamOverviewProps) => {
               <div key={topic.topicTag} className="space-y-2">
                 <div className="flex justify-between text-sm">
                   <span>{topic.topicTag}</span>
-                  <span className="text-muted-foreground">
+                  <span className={`font-bold ${getMasteryColor(topic.accuracyRate)}`}>
                     {topic.correctCount}/{topic.totalCount} correct
                   </span>
                 </div>
