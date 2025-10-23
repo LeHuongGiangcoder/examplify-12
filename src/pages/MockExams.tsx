@@ -1,6 +1,6 @@
-import { ExamCard } from "@/components/ExamCard";
-import { mockExams } from "@/data/mockData";
-import { Trophy, Target, Clock } from "lucide-react";
+import { ExamCategoryCard } from "@/components/ExamCategoryCard";
+import { examCategories } from "@/data/mockData";
+import { Trophy, Target, Clock, GraduationCap } from "lucide-react";
 
 const MockExams = () => {
   return (
@@ -53,12 +53,29 @@ const MockExams = () => {
           </div>
         </div>
 
-        {/* Exams Grid */}
+        {/* Info Banner */}
+        <div className="bg-card rounded-xl p-6 border border-border shadow-md mb-8">
+          <div className="flex items-start gap-4">
+            <div className="p-3 bg-primary/10 rounded-lg">
+              <GraduationCap className="h-6 w-6 text-primary" />
+            </div>
+            <div className="flex-1">
+              <h3 className="text-lg font-semibold text-foreground mb-2">
+                Choose Your Exam Category
+              </h3>
+              <p className="text-muted-foreground">
+                Hover over each category to see all available exam years. Each exam simulates real test conditions with 50 questions in 90 minutes.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Exam Categories Grid */}
         <div className="space-y-6">
-          <h2 className="text-2xl font-semibold text-foreground">Available Exams</h2>
+          <h2 className="text-2xl font-semibold text-foreground">Exam Categories</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {mockExams.map((exam) => (
-              <ExamCard key={exam.id} exam={exam} />
+            {examCategories.map((category) => (
+              <ExamCategoryCard key={category.id} category={category} />
             ))}
           </div>
         </div>

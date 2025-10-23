@@ -87,38 +87,113 @@ export const mockTopics: Topic[] = [
   },
 ];
 
-export const mockExams: Exam[] = [
+export interface ExamCategory {
+  id: string;
+  name: string;
+  description: string;
+  icon: string;
+  color: string;
+  exams: Exam[];
+}
+
+export const examCategories: ExamCategory[] = [
   {
-    id: "exam-2024",
-    year: 2024,
-    title: "THPT National Exam 2024",
-    totalQuestions: 50,
-    duration: 90,
-    questions: [],
+    id: "thpt",
+    name: "THPT National Exam",
+    description: "Official National High School Graduation Exam for university entrance",
+    icon: "🎓",
+    color: "bg-gradient-primary",
+    exams: [
+      {
+        id: "thpt-2024",
+        year: 2024,
+        title: "THPT National Exam 2024",
+        totalQuestions: 50,
+        duration: 90,
+        questions: [],
+      },
+      {
+        id: "thpt-2023",
+        year: 2023,
+        title: "THPT National Exam 2023",
+        totalQuestions: 50,
+        duration: 90,
+        questions: [],
+      },
+      {
+        id: "thpt-2022",
+        year: 2022,
+        title: "THPT National Exam 2022",
+        totalQuestions: 50,
+        duration: 90,
+        questions: [],
+      },
+      {
+        id: "thpt-2021",
+        year: 2021,
+        title: "THPT National Exam 2021",
+        totalQuestions: 50,
+        duration: 90,
+        questions: [],
+      },
+      {
+        id: "thpt-2020",
+        year: 2020,
+        title: "THPT National Exam 2020",
+        totalQuestions: 50,
+        duration: 90,
+        questions: [],
+      },
+    ],
   },
   {
-    id: "exam-2023",
-    year: 2023,
-    title: "THPT National Exam 2023",
-    totalQuestions: 50,
-    duration: 90,
-    questions: [],
-  },
-  {
-    id: "exam-2022",
-    year: 2022,
-    title: "THPT National Exam 2022",
-    totalQuestions: 50,
-    duration: 90,
-    questions: [],
-  },
-  {
-    id: "exam-2021",
-    year: 2021,
-    title: "THPT National Exam 2021",
-    totalQuestions: 50,
-    duration: 90,
-    questions: [],
+    id: "hsa",
+    name: "HSA Test",
+    description: "High School Assessment standardized test for academic evaluation",
+    icon: "📝",
+    color: "bg-gradient-accent",
+    exams: [
+      {
+        id: "hsa-2024",
+        year: 2024,
+        title: "HSA Test 2024",
+        totalQuestions: 50,
+        duration: 90,
+        questions: [],
+      },
+      {
+        id: "hsa-2023",
+        year: 2023,
+        title: "HSA Test 2023",
+        totalQuestions: 50,
+        duration: 90,
+        questions: [],
+      },
+      {
+        id: "hsa-2022",
+        year: 2022,
+        title: "HSA Test 2022",
+        totalQuestions: 50,
+        duration: 90,
+        questions: [],
+      },
+      {
+        id: "hsa-2021",
+        year: 2021,
+        title: "HSA Test 2021",
+        totalQuestions: 50,
+        duration: 90,
+        questions: [],
+      },
+      {
+        id: "hsa-2020",
+        year: 2020,
+        title: "HSA Test 2020",
+        totalQuestions: 50,
+        duration: 90,
+        questions: [],
+      },
+    ],
   },
 ];
 

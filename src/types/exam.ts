@@ -16,6 +16,15 @@ export interface Exam {
   questions: Question[];
 }
 
+export interface ExamCategory {
+  id: string;
+  name: string;
+  description: string;
+  icon: string;
+  color: string;
+  exams: Exam[];
+}
+
 export interface Topic {
   id: string;
   name: string;
