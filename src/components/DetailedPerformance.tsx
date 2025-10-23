@@ -1,6 +1,7 @@
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom"; // Added useNavigate
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer } from "recharts";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button"; // Assuming shadcn/ui Button is available
 
 // Mock data (replace with actual data fetching based on examId)
 const mockTopicPerformance = [
@@ -13,8 +14,13 @@ const mockTopicPerformance = [
 
 export default function DetailedPerformance() {
   const { examId } = useParams<{ examId: string }>();
+  const navigate = useNavigate();
 
   // In a real scenario, fetch detailed data using examId here
+
+  const handlePractice = (topic: string) => {
+    navigate(`/topic-practice?topic=${encodeURIComponent(topic)}`);
+  };
 
   return (
     <div className="container mx-auto p-4">
@@ -46,9 +52,14 @@ export default function DetailedPerformance() {
             <ul className="space-y-4">
               {mockTopicPerformance.map((item, index) => (
                 <li key={index} className="border-b pb-2">
-                  <div className="flex justify-between">
-                    <span className="font-medium">{item.topic}</span>
-                    <span>{item.accuracy}% Accuracy</span>
+                  <div className="flex justify-between items-center">
+                    <div>
+                      <span className="font-medium">{item.topic}</span>
+                      <span className="ml-2 text-muted-foreground">({item.accuracy}% Accuracy)</span>
+                    </div>
+                    <Button variant="link" size="sm" onClick={() => handlePractice(item.topic)}>
+                      Practice
+                    </Button>
                   </div>
                   {/* Add more details like correct/incorrect counts, tips, etc. */}
                 </li>
