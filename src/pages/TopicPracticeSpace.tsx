@@ -19,11 +19,18 @@ const mockQuestion = {
   ],
 };
 
+// Mock levels data (4 levels with progress)
+const mockLevels = [
+  { level: 1, progress: 75 },
+  { level: 2, progress: 50 },
+  { level: 3, progress: 30 },
+  { level: 4, progress: 10 },
+];
+
 export default function TopicPracticeSpace() {
   const { topicId } = useParams<{ topicId: string }>();
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [progress, setProgress] = useState(50); // Mock progress
   const [timeElapsed, setTimeElapsed] = useState(0); // Mock timer
 
   // Mock timer simulation (optional, can be expanded)
@@ -48,8 +55,19 @@ export default function TopicPracticeSpace() {
           </div>
         </div>
 
-        {/* Progress Bar */}
-        <Progress value={progress} className="mb-6" />
+        {/* 4-Level Progress Bars */}
+        <div className="mb-6 space-y-4">
+          <h3 className="text-lg font-semibold">Progress by Level</h3>
+          <div className="grid grid-cols-4 gap-4">
+            {mockLevels.map((level) => (
+              <div key={level.level} className="space-y-2">
+                <span className="text-sm text-muted-foreground">Level {level.level}</span>
+                <Progress value={level.progress} className="h-2" />
+                <span className="text-xs text-center block">{level.progress}%</span>
+              </div>
+            ))}
+          </div>
+        </div>
 
         {/* Question Card */}
         <Card className="bg-white shadow-lg">
