@@ -56,7 +56,7 @@ const MockExams = () => {
         {/* Exam Categories Grid */}
         <div className="space-y-6">
           <h2 className="text-2xl font-semibold text-foreground">Exam Categories</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 gap-6">
             {examCategories.map((category) => (
               <ExamCategoryCard key={category.id} category={category} />
             ))}

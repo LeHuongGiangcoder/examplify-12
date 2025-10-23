@@ -17,7 +17,7 @@ export const ExamCategoryCard = ({ category }: ExamCategoryCardProps) => {
 
   return (
     <Card 
-      className="relative overflow-hidden group transition-all duration-500 h-full"
+      className="relative overflow-hidden group transition-all duration-500 h-[400px]" // Set fixed height
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
