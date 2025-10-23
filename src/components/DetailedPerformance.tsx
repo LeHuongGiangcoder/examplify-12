@@ -2,13 +2,15 @@ import { useParams, useNavigate } from "react-router-dom"; // Added useNavigate
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer } from "recharts";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button"; // Assuming shadcn/ui Button is available
+import { Badge } from "@/components/ui/badge"; // Added for level badge
 
 // Mock data (replace with actual data fetching based on examId)
+// Updated to include a single level per topic to match topic practice structure
 const mockTopicPerformance = [
-  { topic: "Calculus", accuracy: 75 },
-  { topic: "Logarithms", accuracy: 90 },
-  { topic: "Geometry", accuracy: 60 },
-  { topic: "Complex Numbers", accuracy: 45 },
+  { topic: "Calculus", level: 1, accuracy: 75 },
+  { topic: "Logarithms", level: 1, accuracy: 90 },
+  { topic: "Geometry", level: 1, accuracy: 60 },
+  { topic: "Complex Numbers", level: 1, accuracy: 45 },
   // Add more topics as needed
 ];
 
@@ -43,7 +45,7 @@ export default function DetailedPerformance() {
           </CardContent>
         </Card>
 
-        {/* Right: Full Topic Performance */}
+        {/* Right: Full Topic Breakdown */}
         <Card>
           <CardHeader>
             <CardTitle>Full Topic Breakdown</CardTitle>
@@ -53,9 +55,12 @@ export default function DetailedPerformance() {
               {mockTopicPerformance.map((item, index) => (
                 <li key={index} className="border-b pb-2">
                   <div className="flex justify-between items-center">
-                    <div>
+                    <div className="flex items-center gap-2">
                       <span className="font-medium">{item.topic}</span>
-                      <span className="ml-2 text-muted-foreground">({item.accuracy}% Accuracy)</span>
+                      <Badge variant="secondary" className="text-xs">
+                        Level {item.level}
+                      </Badge>
+                      <span className="text-muted-foreground">({item.accuracy}% Accuracy)</span>
                     </div>
                     <Button variant="link" size="sm" onClick={() => handlePractice(item.topic)}>
                       Practice
