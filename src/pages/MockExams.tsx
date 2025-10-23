@@ -53,20 +53,6 @@ const MockExams = () => {
           </div>
         </div>
 
-        {/* Info Banner */}
-        <div className="bg-card rounded-xl p-6 border border-border shadow-md mb-8">
-          <div className="flex items-start gap-4">
-            <div className="p-3 bg-primary/10 rounded-lg">
-              <GraduationCap className="h-6 w-6 text-primary" />
-            </div>
-            <div className="flex-1">
-              <p className="text-muted-foreground">
-                Hover over each category to see all available exam years. Each exam simulates real test conditions with 50 questions in 90 minutes.
-              </p>
-            </div>
-          </div>
-        </div>
-
         {/* Exam Categories Grid */}
         <div className="space-y-6">
           <h2 className="text-2xl font-semibold text-foreground">Exam Categories</h2>
