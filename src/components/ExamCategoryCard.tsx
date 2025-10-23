@@ -70,7 +70,7 @@ export const ExamCategoryCard = ({ category }: ExamCategoryCardProps) => {
               key={exam.id}
               variant="outline"
               className="w-full justify-between group/item hover:bg-primary/10 hover:border-primary transition-all"
-              onClick={() => navigate(`/exam/${exam.id}`)}
+              onClick={() => navigate(`/exam/${exam.id}/result`)}
             >
               <div className="flex items-center gap-2">
                 <Badge variant="secondary" className="font-mono">
