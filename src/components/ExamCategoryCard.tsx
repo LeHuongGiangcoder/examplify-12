@@ -69,14 +69,15 @@ export const ExamCategoryCard = ({ category }: ExamCategoryCardProps) => {
             <Button
               key={exam.id}
               variant="outline"
+              size="sm"
               className="w-full justify-between group/item hover:bg-primary/10 hover:border-primary transition-all"
               onClick={() => navigate(`/exam/${exam.id}`)}
             >
               <div className="flex items-center gap-2">
-                <Badge variant="secondary" className="font-mono">
+                <Badge variant="secondary" className="font-mono text-xs">
                   {exam.year}
                 </Badge>
-                <span className="font-medium">{exam.title}</span>
+                <span className="font-medium text-sm">{exam.title}</span>
               </div>
               <ChevronRight className="h-4 w-4 text-muted-foreground group-hover/item:text-primary group-hover/item:translate-x-1 transition-all" />
             </Button>
