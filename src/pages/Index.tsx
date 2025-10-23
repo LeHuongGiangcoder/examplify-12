@@ -1,12 +1,159 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { useNavigate } from "react-router-dom";
+import { BookOpen, Target, TrendingUp, Award, Users, Zap } from "lucide-react";
+import heroBanner from "@/assets/hero-banner.jpg";
 
 const Index = () => {
+  const navigate = useNavigate();
+
+  const features = [
+    {
+      icon: Target,
+      title: "Mock Exam Room",
+      description: "Practice with real national exam formats under timed conditions",
+      color: "text-primary",
+      bgColor: "bg-primary/10",
+    },
+    {
+      icon: BookOpen,
+      title: "Topic Practice",
+      description: "Master each topic through progressive difficulty levels",
+      color: "text-accent",
+      bgColor: "bg-accent/10",
+    },
+    {
+      icon: TrendingUp,
+      title: "Adaptive Learning",
+      description: "AI-powered recommendations based on your performance",
+      color: "text-success",
+      bgColor: "bg-success/10",
+    },
+    {
+      icon: Award,
+      title: "Performance Tracking",
+      description: "Detailed analytics and progress visualization",
+      color: "text-secondary",
+      bgColor: "bg-secondary/10",
+    },
+  ];
+
+  const stats = [
+    { icon: Users, value: "10,000+", label: "Active Students" },
+    { icon: BookOpen, value: "5,000+", label: "Practice Questions" },
+    { icon: Award, value: "95%", label: "Success Rate" },
+    { icon: Zap, value: "24/7", label: "Available" },
+  ];
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen bg-gradient-to-br from-background via-background to-primary/5">
+      {/* Hero Section */}
+      <section className="relative overflow-hidden">
+        <div 
+          className="absolute inset-0 bg-cover bg-center opacity-20"
+          style={{ backgroundImage: `url(${heroBanner})` }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-secondary/20" />
+        
+        <div className="container relative mx-auto px-4 py-20 md:py-32 max-w-7xl">
+          <div className="text-center space-y-6 animate-fade-in">
+            <h1 className="text-5xl md:text-7xl font-bold bg-gradient-primary bg-clip-text text-transparent leading-tight">
+              Math Exam Prep 12
+            </h1>
+            <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto">
+              Intelligent practice platform for Grade 12 students preparing for the THPT National Exam
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
+              <Button
+                variant="hero"
+                size="xl"
+                onClick={() => navigate("/mock-exams")}
+                className="group"
+              >
+                Start Mock Exam
+                <Target className="ml-2 h-5 w-5 group-hover:rotate-12 transition-transform" />
+              </Button>
+              <Button
+                variant="outline"
+                size="xl"
+                onClick={() => navigate("/topic-practice")}
+              >
+                Browse Topics
+                <BookOpen className="ml-2 h-5 w-5" />
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Stats Section */}
+      <section className="py-12 bg-card/50 border-y border-border">
+        <div className="container mx-auto px-4 max-w-7xl">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            {stats.map((stat, index) => (
+              <div key={index} className="text-center space-y-2">
+                <stat.icon className="h-8 w-8 mx-auto text-primary" />
+                <div className="text-3xl font-bold text-foreground">{stat.value}</div>
+                <div className="text-sm text-muted-foreground">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section className="py-20">
+        <div className="container mx-auto px-4 max-w-7xl">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+              Why Choose Math Exam Prep 12?
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Everything you need to ace the national exam with confidence
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {features.map((feature, index) => (
+              <Card key={index} className="group hover:scale-[1.02] transition-all duration-300">
+                <CardContent className="p-6">
+                  <div className="flex gap-4">
+                    <div className={`p-3 rounded-lg ${feature.bgColor} shrink-0`}>
+                      <feature.icon className={`h-6 w-6 ${feature.color}`} />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-semibold text-foreground mb-2">
+                        {feature.title}
+                      </h3>
+                      <p className="text-muted-foreground">{feature.description}</p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20 bg-gradient-primary">
+        <div className="container mx-auto px-4 max-w-4xl text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+            Ready to Start Your Journey?
+          </h2>
+          <p className="text-xl text-white/90 mb-8">
+            Join thousands of students achieving their exam goals
+          </p>
+          <Button
+            variant="secondary"
+            size="xl"
+            onClick={() => navigate("/topic-practice")}
+            className="shadow-xl hover:shadow-2xl"
+          >
+            Get Started Free
+          </Button>
+        </div>
+      </section>
     </div>
   );
 };
