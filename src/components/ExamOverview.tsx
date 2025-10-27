@@ -1,5 +1,5 @@
 import { DetailedExamResult } from "@/types/exam";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card"; // Simplified imports
 import { Progress } from "@/components/ui/progress";
 import { Clock, Target, Trophy, Brain } from "lucide-react";
 import { Button } from "@/components/ui/button"; // Assuming shadcn/ui Button is available
@@ -34,7 +34,7 @@ export const ExamOverview = ({ result }: ExamOverviewProps) => {
                 <Trophy className="h-6 w-6 text-primary" />
               </div>
               <div>
-                <p className="text-sm text-muted-foreground">Score</p>
+                <p className="text-sm text-muted-foreground">Điểm số</p>
                 <h3 className="text-2xl font-bold">{result.score.toFixed(1)}/10</h3>
               </div>
             </div>
@@ -48,7 +48,7 @@ export const ExamOverview = ({ result }: ExamOverviewProps) => {
                 <Target className="h-6 w-6 text-success" />
               </div>
               <div>
-                <p className="text-sm text-muted-foreground">Accuracy</p>
+                <p className="text-sm text-muted-foreground">Độ chính xác</p>
                 <h3 className="text-2xl font-bold">{(result.accuracyRate * 100).toFixed(1)}%</h3>
               </div>
             </div>
@@ -62,8 +62,8 @@ export const ExamOverview = ({ result }: ExamOverviewProps) => {
                 <Clock className="h-6 w-6 text-accent" />
               </div>
               <div>
-                <p className="text-sm text-muted-foreground">Time Spent</p>
-                <h3 className="text-2xl font-bold">{result.timeSpent} min</h3>
+                <p className="text-sm text-muted-foreground">Thời gian thực hiện</p>
+                <h3 className="text-2xl font-bold">{result.timeSpent} phút</h3>
               </div>
             </div>
           </CardContent>
@@ -76,8 +76,8 @@ export const ExamOverview = ({ result }: ExamOverviewProps) => {
                 <Brain className="h-6 w-6 text-warning" />
               </div>
               <div>
-                <p className="text-sm text-muted-foreground">Avg. Time/Question</p>
-                <h3 className="text-2xl font-bold">{result.averageTimePerQuestion.toFixed(1)}s</h3>
+                <p className="text-sm text-muted-foreground">Thời gian trung bình/câu</p>
+                <h3 className="text-2xl font-bold">{result.averageTimePerQuestion.toFixed(1)} giây</h3>
               </div>
             </div>
           </CardContent>

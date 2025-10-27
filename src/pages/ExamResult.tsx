@@ -1,3 +1,4 @@
+import { TopicPerformance } from "@/components/TopicPerformance"; // Import mới
 import { ExamOverview } from "@/components/ExamOverview";
 import { QuestionTable } from "@/components/QuestionTable";
 import { DetailedExamResult } from "@/types/exam";
@@ -101,17 +102,22 @@ export const ExamResult = () => {
   return (
     <div className="container mx-auto px-4 py-8 max-w-7xl">
       <div className="mb-8">
-        <h1 className="text-3xl font-bold mb-2">{examResult.examId} Results</h1>
+        <h1 className="text-3xl font-bold mb-2">Kết quả {examResult.examId}</h1>
         <p className="text-muted-foreground">
-          Completed on {examResult.completedAt.toLocaleDateString()}
+          Hoàn thành vào {examResult.completedAt.toLocaleDateString()}
         </p>
       </div>
 
       <div className="space-y-8">
+        {/* Topic Performance ở đầu */}
+        <TopicPerformance result={examResult} />
+        
+        {/* Exam Overview */}
         <ExamOverview result={examResult} />
         
+        {/* Question Details với thiết kế mới */}
         <div>
-          <h2 className="text-2xl font-semibold mb-4">Question Details</h2>
+          <h2 className="text-2xl font-semibold mb-4">Chi tiết Câu hỏi</h2>
           <QuestionTable questions={examResult.questions} />
         </div>
       </div>
