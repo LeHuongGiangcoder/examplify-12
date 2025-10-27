@@ -10,39 +10,39 @@ const Index = () => {
   const features = [
     {
       icon: Target,
-      title: "Mock Exam Room",
-      description: "Practice with real national exam formats under timed conditions",
+      title: "Phòng Thi Thử",
+      description: "Luyện tập với định dạng kỳ thi quốc gia thực tế dưới điều kiện thời gian",
       color: "text-primary",
       bgColor: "bg-primary/10",
     },
     {
       icon: BookOpen,
-      title: "Topic Practice",
-      description: "Master each topic through progressive difficulty levels",
+      title: "Luyện Tập Chủ Đề",
+      description: "Làm chủ từng chủ đề qua các mức độ khó dần",
       color: "text-accent",
       bgColor: "bg-accent/10",
     },
     {
       icon: TrendingUp,
-      title: "Adaptive Learning",
-      description: "AI-powered recommendations based on your performance",
+      title: "Học Tập Thích Ứng",
+      description: "Gợi ý dựa trên AI theo hiệu suất của bạn",
       color: "text-success",
       bgColor: "bg-success/10",
     },
     {
       icon: Award,
-      title: "Performance Tracking",
-      description: "Detailed analytics and progress visualization",
+      title: "Theo Dõi Hiệu Suất",
+      description: "Phân tích chi tiết và hình ảnh hóa tiến độ",
       color: "text-secondary",
       bgColor: "bg-secondary/10",
     },
   ];
 
   const stats = [
-    { icon: Users, value: "10,000+", label: "Active Students" },
-    { icon: BookOpen, value: "5,000+", label: "Practice Questions" },
-    { icon: Award, value: "95%", label: "Success Rate" },
-    { icon: Zap, value: "24/7", label: "Available" },
+    { icon: Users, value: "10,000+", label: "Học Sinh Hoạt Động" },
+    { icon: BookOpen, value: "5,000+", label: "Câu Hỏi Luyện Tập" },
+    { icon: Award, value: "95%", label: "Tỷ Lệ Thành Công" },
+    { icon: Zap, value: "24/7", label: "Có Sẵn" },
   ];
 
   return (
@@ -58,10 +58,10 @@ const Index = () => {
         <div className="container relative mx-auto px-4 py-20 md:py-32 max-w-7xl">
           <div className="text-center space-y-6 animate-fade-in">
             <h1 className="text-5xl md:text-7xl font-bold bg-gradient-primary bg-clip-text text-transparent leading-tight">
-              Math Exam Prep 12
+              Chuẩn Bị Thi Toán 12
             </h1>
             <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto">
-              Intelligent practice platform for Grade 12 students preparing for the THPT National Exam
+              Nền tảng luyện tập thông minh cho học sinh lớp 12 chuẩn bị cho Kỳ thi THPT Quốc gia
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
               <Button
@@ -70,7 +70,7 @@ const Index = () => {
                 onClick={() => navigate("/mock-exams")}
                 className="group"
               >
-                Start Mock Exam
+                Bắt Đầu Thi Thử
                 <Target className="ml-2 h-5 w-5 group-hover:rotate-12 transition-transform" />
               </Button>
               <Button
@@ -78,7 +78,7 @@ const Index = () => {
                 size="xl"
                 onClick={() => navigate("/topic-practice")}
               >
-                Browse Topics
+                Duyệt Chủ Đề
                 <BookOpen className="ml-2 h-5 w-5" />
               </Button>
             </div>
@@ -106,10 +106,10 @@ const Index = () => {
         <div className="container mx-auto px-4 max-w-7xl">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Why Choose Math Exam Prep 12?
+              Tại Sao Chọn Chuẩn Bị Thi Toán 12?
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Everything you need to ace the national exam with confidence
+              Mọi thứ bạn cần để vượt qua kỳ thi quốc gia với sự tự tin
             </p>
           </div>
 
@@ -139,10 +139,10 @@ const Index = () => {
       <section className="py-20 bg-gradient-primary">
         <div className="container mx-auto px-4 max-w-4xl text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Ready to Start Your Journey?
+            Sẵn Sàng Bắt Đầu Hành Trình Của Bạn?
           </h2>
           <p className="text-xl text-white/90 mb-8">
-            Join thousands of students achieving their exam goals
+            Tham gia cùng hàng ngàn học sinh đạt được mục tiêu kỳ thi
           </p>
           <Button
             variant="secondary"
@@ -150,7 +150,7 @@ const Index = () => {
             onClick={() => navigate("/topic-practice")}
             className="shadow-xl hover:shadow-2xl"
           >
-            Get Started Free
+            Bắt Đầu Miễn Phí
           </Button>
         </div>
       </section>
