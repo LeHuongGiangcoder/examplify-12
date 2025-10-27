@@ -22,7 +22,7 @@ const TopicPractice = () => {
         {/* Header */}
         <div className="mb-8 animate-fade-in">
           <h1 className="text-4xl md:text-5xl font-bold bg-gradient-accent bg-clip-text text-transparent mb-3">
-            Luyện Tập Chủ Đề
+            Luyện chuyên đề
           </h1>
           <p className="text-lg text-muted-foreground max-w-2xl">
             Làm chủ từng chuyên đề theo tốc độ của bạn. Bắt đầu từ kiến thức nền tảng đến nâng cao.
@@ -89,7 +89,7 @@ const TopicPractice = () => {
         {/* Topics Grid */}
         <div className="space-y-6">
           <h2 className="text-2xl font-semibold text-foreground flex items-center gap-2">
-            Tất Cả Chủ Đề
+            Đề xuất chủ đề cho bạn
             <span className="text-sm font-normal text-muted-foreground">
               ({filteredTopics.length} chủ đề)
             </span>

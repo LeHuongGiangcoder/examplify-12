@@ -36,11 +36,13 @@ export const mockTopics: Topic[] = [
     description: "Explore exponential and logarithmic relationships",
     icon: "🔢",
     color: "bg-secondary",
+    completionRate: 100, // Giả sử hoàn thành 100% để đạt level cao
+    currentLevel: 4, // Thêm trường currentLevel để hiển thị level hiện tại (đặt là 4 như yêu cầu)
     levels: [
-      { id: "lg-1", level: 1, name: "Foundation", difficulty: "foundation", questionsCount: 18, completionRate: 70 },
-      { id: "lg-2", level: 2, name: "Core", difficulty: "core", questionsCount: 22, completionRate: 40 },
-      { id: "lg-3", level: 3, name: "Challenge", difficulty: "challenge", questionsCount: 18, completionRate: 15 },
-      { id: "lg-4", level: 4, name: "Comprehensive", difficulty: "comprehensive", questionsCount: 12, completionRate: 0 },
+      { id: "lg-1", level: 1, name: "Foundation", difficulty: "foundation", questionsCount: 18, completionRate: 100 },
+      { id: "lg-2", level: 2, name: "Core", difficulty: "core", questionsCount: 22, completionRate: 100 },
+      { id: "lg-3", level: 3, name: "Challenge", difficulty: "challenge", questionsCount: 18, completionRate: 100 },
+      { id: "lg-4", level: 4, name: "Comprehensive", difficulty: "comprehensive", questionsCount: 12, completionRate: 100 },
     ],
   },
   {

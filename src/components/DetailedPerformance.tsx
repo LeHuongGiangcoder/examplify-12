@@ -7,10 +7,10 @@ import { Badge } from "@/components/ui/badge"; // Added for level badge
 // Mock data (replace with actual data fetching based on examId)
 // Updated to include a single level per topic to match topic practice structure
 const mockTopicPerformance = [
-  { topic: "Calculus", level: 1, accuracy: 75 },
-  { topic: "Logarithms", level: 1, accuracy: 90 },
-  { topic: "Geometry", level: 1, accuracy: 60 },
-  { topic: "Complex Numbers", level: 1, accuracy: 45 },
+  { topic: "Calculus", level: 3, accuracy: 75 },
+  { topic: "Logarithms", level: 4, accuracy: 90 },
+  { topic: "Geometry", level: 3, accuracy: 60 },
+  { topic: "Complex Numbers", level: 2, accuracy: 45 },
   // Add more topics as needed
 ];
 
@@ -45,7 +45,7 @@ export default function DetailedPerformance() {
           </CardContent>
         </Card>
 
-        {/* Right: Full Topic Breakdown */}
+        {/* Right:  */}
         <Card>
           <CardHeader>
             <CardTitle>Full Topic Breakdown</CardTitle>
