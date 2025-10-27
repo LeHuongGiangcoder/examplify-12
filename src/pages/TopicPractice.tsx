@@ -35,7 +35,7 @@ const TopicPractice = () => {
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
             <Input
               type="text"
-              placeholder="Tìm kiếm chủ đề hoặc loại câu hỏi..."
+              placeholder="Tìm kiếm chủ đề hoặc câu hỏi..."
               className="pl-10 h-12 shadow-md"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
@@ -72,7 +72,7 @@ const TopicPractice = () => {
                 Gợi Ý Cho Bạn
               </h3>
               <p className="text-white/90 mb-3">
-                Dựa trên hiệu suất gần đây của bạn, chúng tôi gợi ý tập trung vào Hàm Số (Mức 3) và Đạo Hàm (Mức 2)
+                Dựa trên kết quả gần đây của bạn, chúng tôi gợi ý tập trung vào Hàm Số (Mức 3) và Đạo Hàm (Mức 2)
               </p>
               <div className="flex gap-2">
                 <Badge variant="outline" className="bg-white/20 text-white border-white/30">

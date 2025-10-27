@@ -35,7 +35,7 @@ const MockExams = () => {
                 <Target className="h-6 w-6 text-accent" />
               </div>
               <div>
-                <p className="text-sm text-muted-foreground">Số Kỳ Thi Đã Làm</p>
+                <p className="text-sm text-muted-foreground">Số bài thi đã làm</p>
                 <p className="text-2xl font-bold text-foreground">12</p>
               </div>
             </div>

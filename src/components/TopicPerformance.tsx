@@ -25,9 +25,9 @@ export const TopicPerformance = ({ result }: TopicPerformanceProps) => {
   return (
     <Card>
       <CardHeader className="flex flex-row items-center justify-between">
-        <CardTitle>Hiệu suất theo Chủ đề</CardTitle>
+        <CardTitle>Tổng quan kiến thức</CardTitle>
         <Button variant="outline" size="sm" onClick={handleViewDetails}>
-          Xem Chi tiết Hiệu suất
+          Xem Chi tiết kiến thức
         </Button>
       </CardHeader>
       <CardContent>
