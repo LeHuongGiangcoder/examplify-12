@@ -9,10 +9,10 @@ const MockExams = () => {
         {/* Header */}
         <div className="mb-8 animate-fade-in">
           <h1 className="text-4xl md:text-5xl font-bold bg-gradient-primary bg-clip-text text-transparent mb-3">
-            Mock Exam Room
+            Phòng Thi Thử
           </h1>
           <p className="text-lg text-muted-foreground max-w-2xl">
-            Practice with real exam formats. Test your skills under actual exam conditions and track your progress.
+            Luyện tập với định dạng kỳ thi thực tế. Kiểm tra kỹ năng dưới điều kiện kỳ thi thực và theo dõi tiến độ.
           </p>
         </div>
 
@@ -24,7 +24,7 @@ const MockExams = () => {
                 <Trophy className="h-6 w-6 text-primary" />
               </div>
               <div>
-                <p className="text-sm text-muted-foreground">Best Score</p>
+                <p className="text-sm text-muted-foreground">Điểm Cao Nhất</p>
                 <p className="text-2xl font-bold text-foreground">8.5/10</p>
               </div>
             </div>
@@ -35,7 +35,7 @@ const MockExams = () => {
                 <Target className="h-6 w-6 text-accent" />
               </div>
               <div>
-                <p className="text-sm text-muted-foreground">Exams Taken</p>
+                <p className="text-sm text-muted-foreground">Số Kỳ Thi Đã Làm</p>
                 <p className="text-2xl font-bold text-foreground">12</p>
               </div>
             </div>
@@ -46,8 +46,8 @@ const MockExams = () => {
                 <Clock className="h-6 w-6 text-success" />
               </div>
               <div>
-                <p className="text-sm text-muted-foreground">Avg. Time</p>
-                <p className="text-2xl font-bold text-foreground">78 min</p>
+                <p className="text-sm text-muted-foreground">Thời Gian Trung Bình</p>
+                <p className="text-2xl font-bold text-foreground">78 phút</p>
               </div>
             </div>
           </div>
@@ -55,7 +55,7 @@ const MockExams = () => {
 
         {/* Exam Categories Grid */}
         <div className="space-y-6">
-          <h2 className="text-2xl font-semibold text-foreground">Exam Categories</h2>
+          <h2 className="text-2xl font-semibold text-foreground">Danh Mục Kỳ Thi</h2>
           <div className="grid grid-cols-1 gap-6">
             {examCategories.map((category) => (
               <ExamCategoryCard key={category.id} category={category} />

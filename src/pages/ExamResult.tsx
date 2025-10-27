@@ -9,7 +9,7 @@ export const ExamResult = () => {
     correctAnswers: 42,
     totalQuestions: 50,
     accuracyRate: 0.84,
-    weakTopics: ["Logarithms", "Complex Numbers"],
+    weakTopics: ["Logarit", "Số phức"],
     completedAt: new Date(),
     timeSpent: 85,
     averageTimePerQuestion: 102,
@@ -22,7 +22,7 @@ export const ExamResult = () => {
         userAnswer: 0,
         isCorrect: true,
         timeSpent: 45,
-        topicTag: "Calculus",
+        topicTag: "Đạo hàm",
         difficulty: "foundation"
       },
       {
@@ -33,7 +33,7 @@ export const ExamResult = () => {
         userAnswer: 2,
         isCorrect: false,
         timeSpent: 120,
-        topicTag: "Logarithms",
+        topicTag: "Logarit",
         difficulty: "core"
       },
       {
@@ -44,7 +44,7 @@ export const ExamResult = () => {
         userAnswer: 0,
         isCorrect: true,
         timeSpent: 90,
-        topicTag: "Geometry",
+        topicTag: "Hình không gian",
         difficulty: "foundation"
       },
       {
@@ -55,7 +55,7 @@ export const ExamResult = () => {
         userAnswer: 1,
         isCorrect: false,
         timeSpent: 180,
-        topicTag: "Complex Numbers",
+        topicTag: "Số phức",
         difficulty: "challenge"
       },
       {
@@ -66,31 +66,31 @@ export const ExamResult = () => {
         userAnswer: 0,
         isCorrect: true,
         timeSpent: 150,
-        topicTag: "Calculus",
+        topicTag: "Đạo hàm",
         difficulty: "core"
       }
     ],
     topicPerformance: [
       {
-        topicTag: "Calculus",
+        topicTag: "Đạo hàm",
         correctCount: 12,
         totalCount: 15,
         accuracyRate: 0.8
       },
       {
-        topicTag: "Logarithms",
+        topicTag: "Logarit",
         correctCount: 8,
         totalCount: 12,
         accuracyRate: 0.67
       },
       {
-        topicTag: "Geometry",
+        topicTag:"Hình không gian",
         correctCount: 10,
         totalCount: 12,
         accuracyRate: 0.83
       },
       {
-        topicTag: "Complex Numbers",
+        topicTag: "Số phức",
         correctCount: 5,
         totalCount: 8,
         accuracyRate: 0.625

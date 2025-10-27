@@ -6,6 +6,7 @@ import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { Clock, CheckCircle, XCircle } from "lucide-react";
+import { Textarea } from "@/components/ui/textarea"; // Add this import for the textarea component
 
 // Mock data for a sample question (replace with real data based on topicId)
 const mockQuestion = {
@@ -29,6 +30,7 @@ export default function TopicPracticeSpace() {
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [timeElapsed, setTimeElapsed] = useState(0); // Mock timer
+  const [notes, setNotes] = useState(""); // New state for user notes
 
   // Mock timer simulation (optional, can be expanded)
   // Use useEffect for real timer if needed
@@ -81,10 +83,22 @@ export default function TopicPracticeSpace() {
               Submit
             </Button>
             {isSubmitted && (
-              <div className="mt-4 flex items-center gap-2 text-green-500">
-                <CheckCircle className="h-5 w-5" />
-                <span>Correct! (Mock feedback)</span>
-              </div>
+              <>
+                <div className="mt-4 flex items-center gap-2 text-green-500">
+                  <CheckCircle className="h-5 w-5" />
+                  <span>Correct! (Mock feedback)</span>
+                </div>
+                <div className="mt-6">
+                  <Label htmlFor="notes" className="block mb-2 font-semibold">Ghi chú suy nghĩ của bạn:</Label>
+                  <Textarea
+                    id="notes"
+                    value={notes}
+                    onChange={(e) => setNotes(e.target.value)}
+                    placeholder="Nhập ghi chú hoặc suy nghĩ của bạn về câu hỏi này..."
+                    rows={4}
+                  />
+                </div>
+              </>
             )}
           </CardContent>
         </Card>

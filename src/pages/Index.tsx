@@ -10,15 +10,15 @@ const Index = () => {
   const features = [
     {
       icon: Target,
-      title: "Phòng Thi Thử",
-      description: "Luyện tập với định dạng kỳ thi quốc gia thực tế dưới điều kiện thời gian",
+      title: "Phòng thi thử",
+      description: "Luyện tập với đề chuẩn cho các kỳ thi THPT",
       color: "text-primary",
       bgColor: "bg-primary/10",
     },
     {
       icon: BookOpen,
-      title: "Luyện Tập Chủ Đề",
-      description: "Làm chủ từng chủ đề qua các mức độ khó dần",
+      title: "Luyện theo chuyên đề",
+      description: "Làm chủ các chuyên đề",
       color: "text-accent",
       bgColor: "bg-accent/10",
     },
@@ -58,10 +58,10 @@ const Index = () => {
         <div className="container relative mx-auto px-4 py-20 md:py-32 max-w-7xl">
           <div className="text-center space-y-6 animate-fade-in">
             <h1 className="text-5xl md:text-7xl font-bold bg-gradient-primary bg-clip-text text-transparent leading-tight">
-              Chuẩn Bị Thi Toán 12
+              Cùng Navi vượt ngàn trông gai lớp 12
             </h1>
             <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto">
-              Nền tảng luyện tập thông minh cho học sinh lớp 12 chuẩn bị cho Kỳ thi THPT Quốc gia
+              Nền tảng luyện tập thông minh cho học sinh lớp 12 chuẩn bị cho các Kỳ thi THPT Quốc gia
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
               <Button
@@ -78,7 +78,7 @@ const Index = () => {
                 size="xl"
                 onClick={() => navigate("/topic-practice")}
               >
-                Duyệt Chủ Đề
+                Luyện chuyên đề
                 <BookOpen className="ml-2 h-5 w-5" />
               </Button>
             </div>
@@ -106,7 +106,7 @@ const Index = () => {
         <div className="container mx-auto px-4 max-w-7xl">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Tại Sao Chọn Chuẩn Bị Thi Toán 12?
+              Tại sao chọn Navi?
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Mọi thứ bạn cần để vượt qua kỳ thi quốc gia với sự tự tin
@@ -139,10 +139,10 @@ const Index = () => {
       <section className="py-20 bg-gradient-primary">
         <div className="container mx-auto px-4 max-w-4xl text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Sẵn Sàng Bắt Đầu Hành Trình Của Bạn?
+            Bắt đầu ngay? 
           </h2>
           <p className="text-xl text-white/90 mb-8">
-            Tham gia cùng hàng ngàn học sinh đạt được mục tiêu kỳ thi
+            Tham gia cùng hàng ngàn học sinh đạt được mục tiêu
           </p>
           <Button
             variant="secondary"
@@ -150,7 +150,7 @@ const Index = () => {
             onClick={() => navigate("/topic-practice")}
             className="shadow-xl hover:shadow-2xl"
           >
-            Bắt Đầu Miễn Phí
+            Thi thử miễn phí
           </Button>
         </div>
       </section>

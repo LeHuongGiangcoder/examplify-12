@@ -14,7 +14,7 @@ const TopicPractice = () => {
       topic.tag.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
-  const popularTags = ["#Functions", "#Derivatives", "#Logarithms", "#Geometry"];
+  const popularTags = ["#Hàm Số", "#Đạo Hàm", "#Logarit", "#Hình Học"];
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-background to-secondary/5">
@@ -22,10 +22,10 @@ const TopicPractice = () => {
         {/* Header */}
         <div className="mb-8 animate-fade-in">
           <h1 className="text-4xl md:text-5xl font-bold bg-gradient-accent bg-clip-text text-transparent mb-3">
-            Topic Practice
+            Luyện Tập Chủ Đề
           </h1>
           <p className="text-lg text-muted-foreground max-w-2xl">
-            Master each topic at your own pace. Start with foundations and progress to comprehensive challenges.
+            Làm chủ từng chuyên đề theo tốc độ của bạn. Bắt đầu từ kiến thức nền tảng đến nâng cao.
           </p>
         </div>
 
@@ -35,7 +35,7 @@ const TopicPractice = () => {
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
             <Input
               type="text"
-              placeholder="Search topics or question types..."
+              placeholder="Tìm kiếm chủ đề hoặc loại câu hỏi..."
               className="pl-10 h-12 shadow-md"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
@@ -46,7 +46,7 @@ const TopicPractice = () => {
           <div className="flex items-center gap-3 flex-wrap">
             <span className="text-sm font-medium text-muted-foreground flex items-center gap-2">
               <TrendingUp className="h-4 w-4" />
-              Popular:
+              Phổ Biến:
             </span>
             {popularTags.map((tag) => (
               <Badge
@@ -69,17 +69,17 @@ const TopicPractice = () => {
             </div>
             <div className="flex-1">
               <h3 className="text-xl font-semibold text-white mb-2">
-                Recommended for You
+                Gợi Ý Cho Bạn
               </h3>
               <p className="text-white/90 mb-3">
-                Based on your recent performance, we suggest focusing on Functions (Level 3) and Derivatives (Level 2)
+                Dựa trên hiệu suất gần đây của bạn, chúng tôi gợi ý tập trung vào Hàm Số (Mức 3) và Đạo Hàm (Mức 2)
               </p>
               <div className="flex gap-2">
                 <Badge variant="outline" className="bg-white/20 text-white border-white/30">
-                  Personalized
+                  Cá Nhân Hóa
                 </Badge>
                 <Badge variant="outline" className="bg-white/20 text-white border-white/30">
-                  Adaptive
+                  Thích Ứng
                 </Badge>
               </div>
             </div>
@@ -89,9 +89,9 @@ const TopicPractice = () => {
         {/* Topics Grid */}
         <div className="space-y-6">
           <h2 className="text-2xl font-semibold text-foreground flex items-center gap-2">
-            All Topics
+            Tất Cả Chủ Đề
             <span className="text-sm font-normal text-muted-foreground">
-              ({filteredTopics.length} topics)
+              ({filteredTopics.length} chủ đề)
             </span>
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
