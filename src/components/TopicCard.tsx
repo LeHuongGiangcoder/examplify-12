@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { Topic } from "@/types/exam";
 import { ChevronRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { Button } from "@/components/ui/button"; // Add this import if not present
 
 interface TopicCardProps {
   topic: Topic;
@@ -11,12 +12,12 @@ interface TopicCardProps {
 
 export const TopicCard = ({ topic }: TopicCardProps) => {
   const navigate = useNavigate();
-  const completion = topic.completionRate || 0; // Use the single completionRate (assuming updated Topic type)
+  const completion = topic.completionRate || 0;
 
   return (
     <Card 
       className="cursor-pointer group hover:scale-[1.02] transition-all duration-300"
-      onClick={() => navigate(`/topic/${topic.id}`)}
+      onClick={() => navigate(`/topic/${topic.id}`)} // Existing navigation
     >
       <CardHeader>
         <div className="flex items-start justify-between">
@@ -45,9 +46,22 @@ export const TopicCard = ({ topic }: TopicCardProps) => {
             variant={completion > 70 ? "success" : "secondary"}
             className="text-xs"
           >
-            Level 1: {completion}%
+            Level {topic.currentLevel || 1}: {completion}%
           </Badge>
         </div>
+        
+        {/* New button for reviewing past questions */}
+        <Button 
+          variant="outline" 
+          size="sm" 
+          className="mt-4 w-full"
+          onClick={(e) => {
+            e.stopPropagation(); // Prevent card click
+            navigate(`/topic-review/${topic.id}`);
+          }}
+        >
+          Xem lại câu hỏi đã làm
+        </Button>
       </CardContent>
     </Card>
   );

@@ -26,12 +26,12 @@ export default function DetailedPerformance() {
 
   return (
     <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-6">Detailed Performance for Exam {examId}</h1>
+      <h1 className="text-2xl font-bold mb-6">Chi tiết kiến thức bài kiểm tra {examId}</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Left: Radar Chart */}
         <Card>
           <CardHeader>
-            <CardTitle>Performance Radar</CardTitle>
+            <CardTitle>Bản đồ kiến thức</CardTitle>
           </CardHeader>
           <CardContent>
             <ResponsiveContainer width="100%" height={400}>
@@ -48,7 +48,7 @@ export default function DetailedPerformance() {
         {/* Right:  */}
         <Card>
           <CardHeader>
-            <CardTitle>Full Topic Breakdown</CardTitle>
+            <CardTitle>Chi tiết kiến thức</CardTitle>
           </CardHeader>
           <CardContent>
             <ul className="space-y-4">

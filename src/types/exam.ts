@@ -29,10 +29,11 @@ export interface Topic {
   id: string;
   name: string;
   tag: string;
-  description: string;
   icon: string;
-  color: string;
-  levels: TopicLevel[];
+  description: string;
+  completionRate: number;
+  currentLevel?: number; // Optional, as previously added
+  pastQuestions?: QuestionResult[]; // New field for past questions
 }
 
 export interface TopicLevel {
