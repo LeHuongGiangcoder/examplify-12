@@ -1,4 +1,4 @@
-import { Exam, Topic, Question } from "@/types/exam";
+import { Exam, Topic, QuestionResult } from "@/types/exam"; // Đảm bảo import QuestionResult nếu chưa có
 
 export const mockTopics: Topic[] = [
   {
@@ -14,6 +14,34 @@ export const mockTopics: Topic[] = [
       { id: "fn-3", level: 3, name: "Challenge", difficulty: "challenge", questionsCount: 20, completionRate: 30 },
       { id: "fn-4", level: 4, name: "Comprehensive", difficulty: "comprehensive", questionsCount: 15, completionRate: 0 },
     ],
+    pastQuestions: [ // Thêm dữ liệu mẫu
+      {
+        id: "q1",
+        content: "Tìm đạo hàm của hàm số f(x) = x² + 3x + 2",
+        options: ["2x + 3", "x² + 3", "2x", "3"],
+        correctAnswer: 0,
+        userAnswer: 0,
+        isCorrect: true,
+        timeSpent: 45,
+        topicTag: "Hàm số",
+        difficulty: "foundation",
+        explanation: "",
+        notes: ""
+      },
+      {
+        id: "q6",
+        content: "Biến đổi hàm số y = 2x + 1 thành dạng đồ thị",
+        options: ["Đường thẳng", "Parabol", "Hyperbol", "Hình sin"],
+        correctAnswer: 0,
+        userAnswer: 0,
+        isCorrect: true,
+        timeSpent: 60,
+        topicTag: "Hàm số",
+        difficulty: "foundation",
+        explanation: "",
+        notes: ""
+      }
+    ]
   },
   {
     id: "derivatives",
@@ -28,6 +56,34 @@ export const mockTopics: Topic[] = [
       { id: "dv-3", level: 3, name: "Challenge", difficulty: "challenge", questionsCount: 20, completionRate: 45 },
       { id: "dv-4", level: 4, name: "Comprehensive", difficulty: "comprehensive", questionsCount: 15, completionRate: 10 },
     ],
+    pastQuestions: [
+      {
+        id: "q5",
+        content: "Tìm giới hạn khi x tiến tới vô cực: lim(x→∞) (x² + 2x + 1)/(x² + 1)",
+        options: ["1", "2", "0", "∞"],
+        correctAnswer: 0,
+        userAnswer: 0,
+        isCorrect: true,
+        timeSpent: 150,
+        topicTag: "Đạo hàm",
+        difficulty: "core",
+        explanation: "",
+        notes: ""
+      },
+      {
+        id: "q7",
+        content: "Đạo hàm của f(x) = sin(x) là gì?",
+        options: ["cos(x)", "-sin(x)", "tan(x)", "sec(x)"],
+        correctAnswer: 0,
+        userAnswer: 1,
+        isCorrect: false,
+        timeSpent: 90,
+        topicTag: "Đạo hàm",
+        difficulty: "core",
+        explanation: "Đạo hàm của sin(x) là cos(x).",
+        notes: ""
+      }
+    ]
   },
   {
     id: "logarithms",
@@ -36,14 +92,42 @@ export const mockTopics: Topic[] = [
     description: "Explore exponential and logarithmic relationships",
     icon: "🔢",
     color: "bg-secondary",
-    completionRate: 100, // Giả sử hoàn thành 100% để đạt level cao
-    currentLevel: 4, // Thêm trường currentLevel để hiển thị level hiện tại (đặt là 4 như yêu cầu)
+    completionRate: 100,
+    currentLevel: 4,
     levels: [
       { id: "lg-1", level: 1, name: "Foundation", difficulty: "foundation", questionsCount: 18, completionRate: 100 },
       { id: "lg-2", level: 2, name: "Core", difficulty: "core", questionsCount: 22, completionRate: 100 },
       { id: "lg-3", level: 3, name: "Challenge", difficulty: "challenge", questionsCount: 18, completionRate: 100 },
       { id: "lg-4", level: 4, name: "Comprehensive", difficulty: "comprehensive", questionsCount: 12, completionRate: 100 },
     ],
+    pastQuestions: [
+      {
+        id: "q2",
+        content: "Giải phương trình: log₂(x + 3) = 4",
+        options: ["13", "16", "19", "22"],
+        correctAnswer: 0,
+        userAnswer: 2,
+        isCorrect: false,
+        timeSpent: 120,
+        topicTag: "Logarit",
+        difficulty: "core",
+        explanation: "Đáp án đúng là 13 vì 2^4 = 16, nên x + 3 = 16, x = 13.",
+        notes: ""
+      },
+      {
+        id: "q8",
+        content: "Tính log10(1000)",
+        options: ["2", "3", "4", "10"],
+        correctAnswer: 1,
+        userAnswer: 1,
+        isCorrect: true,
+        timeSpent: 30,
+        topicTag: "Logarit",
+        difficulty: "foundation",
+        explanation: "",
+        notes: ""
+      }
+    ]
   },
   {
     id: "geometry",
@@ -58,6 +142,34 @@ export const mockTopics: Topic[] = [
       { id: "gm-3", level: 3, name: "Challenge", difficulty: "challenge", questionsCount: 20, completionRate: 10 },
       { id: "gm-4", level: 4, name: "Comprehensive", difficulty: "comprehensive", questionsCount: 15, completionRate: 0 },
     ],
+    pastQuestions: [
+      {
+        id: "q3",
+        content: "Tìm diện tích tam giác với các đỉnh tại (0,0), (4,0), và (0,3)",
+        options: ["6", "12", "8", "10"],
+        correctAnswer: 0,
+        userAnswer: 0,
+        isCorrect: true,
+        timeSpent: 90,
+        topicTag: "Hình học không gian",
+        difficulty: "foundation",
+        explanation: "",
+        notes: ""
+      },
+      {
+        id: "q9",
+        content: "Thể tích hình cầu bán kính r=2",
+        options: ["(4/3)π*8", "4π", "8π", "(4/3)π*4"],
+        correctAnswer: 0,
+        userAnswer: 0,
+        isCorrect: true,
+        timeSpent: 120,
+        topicTag: "Hình học không gian",
+        difficulty: "core",
+        explanation: "",
+        notes: ""
+      }
+    ]
   },
   {
     id: "integrals",
@@ -72,6 +184,21 @@ export const mockTopics: Topic[] = [
       { id: "int-3", level: 3, name: "Challenge", difficulty: "challenge", questionsCount: 20, completionRate: 5 },
       { id: "int-4", level: 4, name: "Comprehensive", difficulty: "comprehensive", questionsCount: 15, completionRate: 0 },
     ],
+    pastQuestions: [
+      {
+        id: "q10",
+        content: "Tích phân của f(x) = 2x từ 0 đến 1",
+        options: ["1", "2", "0", "4"],
+        correctAnswer: 0,
+        userAnswer: 0,
+        isCorrect: true,
+        timeSpent: 100,
+        topicTag: "Tích phân",
+        difficulty: "foundation",
+        explanation: "",
+        notes: ""
+      }
+    ]
   },
   {
     id: "probability",
