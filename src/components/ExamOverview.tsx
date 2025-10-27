@@ -1,113 +1,55 @@
 import { DetailedExamResult } from "@/types/exam";
-import { Card, CardContent } from "@/components/ui/card"; // Simplified imports
-import { Progress } from "@/components/ui/progress";
+import { Card, CardContent } from "@/components/ui/card";
 import { Clock, Target, Trophy, Brain } from "lucide-react";
-import { Button } from "@/components/ui/button"; // Assuming shadcn/ui Button is available
-import { useNavigate, useParams } from "react-router-dom";
 
 interface ExamOverviewProps {
   result: DetailedExamResult;
 }
 
 export const ExamOverview = ({ result }: ExamOverviewProps) => {
-  const navigate = useNavigate();
-  const { examId } = useParams<{ examId: string }>();
-
-  const getMasteryColor = (accuracyRate: number) => {
-    if (accuracyRate < 0.5) return "text-red-500"; // Low mastery
-    if (accuracyRate < 0.8) return "text-yellow-500"; // Medium mastery
-    return "text-green-500"; // High mastery
-  };
-
-  const handleViewDetails = () => {
-    navigate(`/exam/${examId}/performance`);
-  };
-
   return (
     <div className="space-y-6">
-      {/* Score Overview */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+      {/* Tổng quan Điểm số và Thời gian thực hiện */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <Card>
-          <CardContent className="pt-6">
-            <div className="flex items-center gap-4">
-              <div className="p-3 bg-primary/10 rounded-lg">
-                <Trophy className="h-6 w-6 text-primary" />
-              </div>
-              <div>
-                <p className="text-sm text-muted-foreground">Điểm số</p>
-                <h3 className="text-2xl font-bold">{result.score.toFixed(1)}/10</h3>
-              </div>
+          <CardContent className="pt-6 flex flex-col items-center gap-2">
+            <div className="p-3 bg-primary/10 rounded-lg">
+              <Trophy className="h-6 w-6 text-primary" />
+            </div>
+            <div className="text-center">
+              <p className="text-sm text-muted-foreground">Điểm số</p>
+              <h3 className="text-2xl font-bold">{result.score.toFixed(1)}/10</h3>
             </div>
           </CardContent>
         </Card>
 
         <Card>
-          <CardContent className="pt-6">
-            <div className="flex items-center gap-4">
-              <div className="p-3 bg-success/10 rounded-lg">
-                <Target className="h-6 w-6 text-success" />
-              </div>
-              <div>
-                <p className="text-sm text-muted-foreground">Độ chính xác</p>
-                <h3 className="text-2xl font-bold">{(result.accuracyRate * 100).toFixed(1)}%</h3>
-              </div>
+          <CardContent className="pt-6 flex flex-col items-center gap-2">
+            <div className="p-3 bg-accent/10 rounded-lg">
+              <Clock className="h-6 w-6 text-accent" />
             </div>
-          </CardContent>
-        </Card>
-
-        <Card>
-          <CardContent className="pt-6">
-            <div className="flex items-center gap-4">
-              <div className="p-3 bg-accent/10 rounded-lg">
-                <Clock className="h-6 w-6 text-accent" />
-              </div>
-              <div>
-                <p className="text-sm text-muted-foreground">Thời gian thực hiện</p>
-                <h3 className="text-2xl font-bold">{result.timeSpent} phút</h3>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-
-        <Card>
-          <CardContent className="pt-6">
-            <div className="flex items-center gap-4">
-              <div className="p-3 bg-warning/10 rounded-lg">
-                <Brain className="h-6 w-6 text-warning" />
-              </div>
-              <div>
-                <p className="text-sm text-muted-foreground">Thời gian trung bình/câu</p>
-                <h3 className="text-2xl font-bold">{result.averageTimePerQuestion.toFixed(1)} giây</h3>
-              </div>
+            <div className="text-center">
+              <p className="text-sm text-muted-foreground">Thời gian thực hiện</p>
+              <h3 className="text-2xl font-bold">{result.timeSpent} phút</h3>
             </div>
           </CardContent>
         </Card>
       </div>
 
-      {/* Topic Performance */}
-      <Card>
-        <CardHeader className="flex flex-row items-center justify-between">
-          <CardTitle>Topic Performance</CardTitle>
-          <Button variant="outline" size="sm" onClick={handleViewDetails}>
-            View Detailed Performance
-          </Button>
-        </CardHeader>
-        <CardContent>
-          <div className="space-y-4">
-            {result.topicPerformance.map((topic) => (
-              <div key={topic.topicTag} className="space-y-2">
-                <div className="flex justify-between text-sm">
-                  <span>{topic.topicTag}</span>
-                  <span className={`font-bold ${getMasteryColor(topic.accuracyRate)}`}>
-                    {topic.correctCount}/{topic.totalCount} correct
-                  </span>
-                </div>
-                <Progress value={topic.accuracyRate * 100} />
-              </div>
-            ))}
-          </div>
-        </CardContent>
-      </Card>
+      {/* Danh sách số câu hỏi và kết quả đúng/sai */}
+      <div className="space-y-4">
+        <h3 className="text-lg font-semibold">Danh sách câu hỏi</h3>
+        <ul className="space-y-2">
+          {result.questions.map((question, index) => (
+            <li key={question.id} className="flex justify-between items-center p-2 bg-muted/50 rounded-md">
+              <span>Câu {index + 1}</span>
+              <span className={`font-bold ${question.isCorrect ? 'text-success' : 'text-destructive'}`}>
+                {question.isCorrect ? 'Đúng' : 'Sai'}
+              </span>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 };

@@ -63,10 +63,18 @@ export interface ExamResult {
   completedAt: Date;
 }
 
-export interface QuestionResult extends Question {
+export interface QuestionResult {
+  id: string;
+  content: string;
+  options: string[];
+  correctAnswer: number;
   userAnswer: number;
   isCorrect: boolean;
-  timeSpent: number; // in seconds
+  timeSpent: number;
+  topicTag: string;
+  difficulty: string;
+  explanation?: string; // Thêm trường giải thích (optional)
+  notes?: string; // Thêm trường ghi chú (optional)
 }
 
 export interface DetailedExamResult extends ExamResult {

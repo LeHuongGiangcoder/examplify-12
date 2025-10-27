@@ -1,4 +1,4 @@
-import { TopicPerformance } from "@/components/TopicPerformance"; // Import mới
+import { TopicPerformance } from "@/components/TopicPerformance";
 import { ExamOverview } from "@/components/ExamOverview";
 import { QuestionTable } from "@/components/QuestionTable";
 import { DetailedExamResult } from "@/types/exam";
@@ -17,58 +17,68 @@ export const ExamResult = () => {
     questions: [
       {
         id: "q1",
-        content: "Find the derivative of f(x) = x² + 3x + 2",
+        content: "Tìm đạo hàm của hàm số f(x) = x² + 3x + 2",
         options: ["2x + 3", "x² + 3", "2x", "3"],
         correctAnswer: 0,
         userAnswer: 0,
         isCorrect: true,
         timeSpent: 45,
         topicTag: "Đạo hàm",
-        difficulty: "foundation"
+        difficulty: "foundation",
+        explanation: "", // Không cần giải thích nếu đúng
+        notes: "" // Ghi chú ban đầu rỗng
       },
       {
         id: "q2",
-        content: "Solve the equation: log₂(x + 3) = 4",
+        content: "Giải phương trình: log₂(x + 3) = 4",
         options: ["13", "16", "19", "22"],
         correctAnswer: 0,
         userAnswer: 2,
         isCorrect: false,
         timeSpent: 120,
         topicTag: "Logarit",
-        difficulty: "core"
+        difficulty: "core",
+        explanation: "Đáp án đúng là 13 vì 2^4 = 16, nên x + 3 = 16, x = 13.",
+        notes: "" // Ghi chú ban đầu rỗng
       },
       {
         id: "q3",
-        content: "Find the area of a triangle with vertices at (0,0), (4,0), and (0,3)",
+        content: "Tìm diện tích tam giác với các đỉnh tại (0,0), (4,0), và (0,3)",
         options: ["6", "12", "8", "10"],
         correctAnswer: 0,
         userAnswer: 0,
         isCorrect: true,
         timeSpent: 90,
         topicTag: "Hình không gian",
-        difficulty: "foundation"
+        difficulty: "foundation",
+        explanation: "",
+        notes: ""
       },
       {
         id: "q4",
-        content: "Solve the complex equation: z² + 4z + 13 = 0",
+        content: "Giải phương trình phức: z² + 4z + 13 = 0",
         options: ["-2 + 3i", "-2 - 3i", "2 + 3i", "2 - 3i"],
         correctAnswer: 0,
         userAnswer: 1,
         isCorrect: false,
         timeSpent: 180,
         topicTag: "Số phức",
-        difficulty: "challenge"
+        difficulty: "challenge",
+        explanation: "Nghiệm là z = -2 ± 3i, sử dụng công thức nghiệm phương trình bậc 2.",
+        notes: ""
       },
       {
         id: "q5",
-        content: "Find the limit as x approaches infinity: lim(x→∞) (x² + 2x + 1)/(x² + 1)",
+        content: "Tìm giới hạn khi x tiến tới vô cực: lim(x→∞) (x² + 2x + 1)/(x² + 1)",
         options: ["1", "2", "0", "∞"],
         correctAnswer: 0,
         userAnswer: 0,
         isCorrect: true,
         timeSpent: 150,
         topicTag: "Đạo hàm",
-        difficulty: "core"
+        difficulty: "core",
+        explanation: "",
+        notes: ""
       }
     ],
     topicPerformance: [
@@ -85,7 +95,7 @@ export const ExamResult = () => {
         accuracyRate: 0.67
       },
       {
-        topicTag:"Hình không gian",
+        topicTag: "Hình không gian",
         correctCount: 10,
         totalCount: 12,
         accuracyRate: 0.83
@@ -109,16 +119,22 @@ export const ExamResult = () => {
       </div>
 
       <div className="space-y-8">
-        {/* Topic Performance ở đầu */}
+        {/* Topic Performance ở đầu (giữ nguyên) */}
         <TopicPerformance result={examResult} />
         
-        {/* Exam Overview */}
-        <ExamOverview result={examResult} />
-        
-        {/* Question Details với thiết kế mới */}
-        <div>
-          <h2 className="text-2xl font-semibold mb-4">Chi tiết Câu hỏi</h2>
-          <QuestionTable questions={examResult.questions} />
+        {/* Phần dual layout: Tổng quan bên trái (3/10), Chi tiết câu hỏi bên phải (7/10) */}
+        <div className="grid grid-cols-1 md:grid-cols-10 gap-6">
+          {/* Bên trái: Tổng quan */}
+          <div className="md:col-span-3">
+            <h2 className="text-2xl font-semibold mb-4">Tổng quan</h2> {/* Thêm tiêu đề nếu cần */}
+            <ExamOverview result={examResult} />
+          </div>
+          
+          {/* Bên phải: Chi tiết câu hỏi */}
+          <div className="md:col-span-7">
+            <h2 className="text-2xl font-semibold mb-4">Chi tiết Câu hỏi</h2>
+            <QuestionTable questions={examResult.questions} />
+          </div>
         </div>
       </div>
     </div>
